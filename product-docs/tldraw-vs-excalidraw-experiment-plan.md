@@ -24,7 +24,7 @@ This document outlines a parallel experiment to evaluate tldraw vs Excalidraw, b
 
 Based on ProductPeer's PRD and what can be implemented quickly with tldraw + Liveblocks:
 
-### Feature Set 1: Basic Collaborative Canvas (Week 1)
+### Feature Set 1: Basic Collaborative Canvas
 1. **Real-time Collaboration**
    - Multiple users on same board
    - Live cursors with names
@@ -43,7 +43,7 @@ Based on ProductPeer's PRD and what can be implemented quickly with tldraw + Liv
    - Shareable URLs
    - Board recovery on refresh
 
-### Feature Set 2: Custom Blocks Foundation (Week 2)
+### Feature Set 2: Custom Blocks Foundation
 1. **Card Block** (Custom Shape)
    - Title + body text
    - Click to expand modal
@@ -61,7 +61,7 @@ Based on ProductPeer's PRD and what can be implemented quickly with tldraw + Liv
    - "Generate sticky note" command
    - AI as collaborative user
 
-### Feature Set 3: ProductPeer MVP (Week 3)
+### Feature Set 3: ProductPeer MVP
 1. **Lean Canvas Template**
    - 9 CardStack sections
    - Pre-configured layout
@@ -133,21 +133,21 @@ ProductPeer/
 
 ## Checkpoints
 
-### Checkpoint 1: Basic Canvas (Day 2-3)
+### Checkpoint 1: Basic Canvas
 - [ ] Both repos have working canvas
 - [ ] Real-time collaboration functional
 - [ ] Live cursors visible
 - [ ] Basic shapes working
 - **Decision Point**: Which feels more stable?
 
-### Checkpoint 2: Custom Blocks (Day 5-6)
+### Checkpoint 2: Custom Blocks
 - [ ] Card block implemented
 - [ ] CardStack container working
 - [ ] Drag and drop functional
 - [ ] Collaborative editing works
 - **Decision Point**: Which was easier to extend?
 
-### Checkpoint 3: ProductPeer Features (Day 8-10)
+### Checkpoint 3: ProductPeer Features
 - [ ] Lean Canvas template
 - [ ] AI integration started
 - [ ] Permissions working

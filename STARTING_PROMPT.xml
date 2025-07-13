@@ -1,0 +1,81 @@
+<context>
+  <project_info>
+    <name>excalidraw-liveblocks-experiment</name>
+    <repository>https://github.com/ProductPeer/excalidraw-liveblocks-experiment</repository>
+    <objective>Implement ProductPeer's AI-native canvas using Excalidraw + Liveblocks, achieving feature parity with tldraw despite integration challenges</objective>
+  </project_info>
+
+  <critical_requirements>
+    <requirement priority="critical">AI-native from day 1 - AI must be a collaborative user with presence</requirement>
+    <requirement priority="critical">Access management from Phase 1 - private boards, permissions</requirement>
+    <requirement priority="critical">Card and CardStack via overlay approach by Phase 2</requirement>
+    <requirement priority="critical">Document every workaround and hack needed</requirement>
+  </critical_requirements>
+
+  <primary_documents>
+    <document path="product-docs/productpeer-bmf-prd.md" priority="critical">
+      Core product requirements - READ FIRST for AI-native vision
+    </document>
+    <document path="product-docs/excalidraw-liveblocks-experiment-plan.md" priority="high">
+      Implementation plan with overlay approach
+    </document>
+    <document path="CLAUDE.md" priority="high">
+      Project guidelines - note the "no time estimates" rule
+    </document>
+  </primary_documents>
+
+  <phase_1_challenges>
+    <challenge>No native Liveblocks integration - must build from scratch</challenge>
+    <challenge>AI as collaborative user requires custom WebSocket work</challenge>
+    <challenge>Access management not built into Excalidraw</challenge>
+    <challenge>Must track complexity and workarounds</challenge>
+  </phase_1_challenges>
+
+  <phase_1_goals>
+    <goal>Build custom Liveblocks sync layer for Excalidraw</goal>
+    <goal>Implement AI as a collaborative user with presence</goal>
+    <goal>AI can see the board and generate elements</goal>
+    <goal>Basic access management layer on top of Excalidraw</goal>
+    <goal>Document integration complexity metrics</goal>
+  </phase_1_goals>
+</context>
+
+<instructions>
+  <primary_goal>
+    Build an AI-native canvas using Excalidraw, despite lacking native support. Focus on documenting the complexity of making AI a first-class collaborator without built-in features.
+  </primary_goal>
+
+  <workflow>
+    1. Read product-docs/ files, understand the AI-native vision vs Excalidraw limitations
+    2. Clone the repo: git clone https://github.com/ProductPeer/excalidraw-liveblocks-experiment
+    3. Initialize: npx create-next-app@latest . --typescript --tailwind --app
+    4. Install: npm install @excalidraw/excalidraw liveblocks @liveblocks/react
+    5. Set up TodoWrite: Sync layer, AI integration, Access layer, Workaround tracking
+    6. Build custom sync between Excalidraw state and Liveblocks
+    7. Use Task tool to research Excalidraw internals while implementing
+    8. Document EVERY hack, workaround, and custom code needed
+    9. Track complexity metrics in experiment-log.md
+  </workflow>
+
+  <complexity_tracking>
+    Track these metrics for comparison:
+    - Files created for Liveblocks integration
+    - Lines of custom sync code
+    - Excalidraw internal APIs used
+    - Workarounds for missing features
+    - Integration complexity vs features implemented
+  </complexity_tracking>
+
+  <success_metrics>
+    - AI appears as a collaborative user
+    - Real-time sync works reliably
+    - Access control enforced
+    - All hacks documented
+    - Performance acceptable
+    - Integration maintainable
+  </success_metrics>
+</instructions>
+
+<request>
+Start by cloning the repo and studying how Excalidraw's state management works. Then begin building the custom Liveblocks integration, focusing heavily on documenting the complexity. Make note of everything that tldraw provides natively that you have to build from scratch. Work at a sustainable pace - thoroughness matters more than speed.
+</request>

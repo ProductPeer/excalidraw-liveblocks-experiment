@@ -3,9 +3,9 @@
 ## Objective
 Implement ProductPeer's core features using Excalidraw + Liveblocks to achieve feature parity with the tldraw experiment and evaluate the integration complexity.
 
-## Week 1: Basic Collaborative Canvas
+## Phase 1: Basic Collaborative Canvas
 
-### Day 1: Setup & Liveblocks Integration
+### Feature Set 1A: Setup & Liveblocks Integration
 ```bash
 # Initialize Next.js project
 npx create-next-app@latest excalidraw-liveblocks-experiment --typescript --tailwind --app
@@ -35,7 +35,7 @@ class ExcalidrawLiveblocksSync {
 - Liveblocks connection established
 - Basic element sync working
 
-### Day 2-3: Collaboration Features
+### Feature Set 1B: Collaboration Features
 **Tasks:**
 1. [ ] Implement live cursors
 2. [ ] Add presence indicators
@@ -53,9 +53,9 @@ class ExcalidrawLiveblocksSync {
 - Performance baseline established
 - Integration architecture documented
 
-## Week 2: Custom Blocks (Card & CardStack)
+## Phase 2: Custom Blocks (Card & CardStack)
 
-### Day 4-5: Card Block Implementation
+### Feature Set 2A: Card Block Implementation
 Since Excalidraw doesn't support custom elements easily, we'll use an overlay approach:
 
 ```typescript
@@ -83,7 +83,7 @@ interface CardBlock {
 - Sync overlay state through Liveblocks
 - Custom data stored separately from Excalidraw
 
-### Day 6-7: CardStack Container
+### Feature Set 2B: CardStack Container
 **Tasks:**
 1. [ ] Create CardStack overlay system
 2. [ ] Implement Card-to-Stack association
@@ -96,9 +96,9 @@ interface CardBlock {
 - Maintain sync during drag operations
 - Handle collaborative conflicts
 
-## Week 3: ProductPeer MVP Features
+## Phase 3: ProductPeer MVP Features
 
-### Day 8: Lean Canvas Template
+### Feature Set 3A: Lean Canvas Template
 **Tasks:**
 1. [ ] Build template generator
 2. [ ] Create 9 CardStack sections
@@ -116,7 +116,7 @@ function createLeanCanvasTemplate() {
 }
 ```
 
-### Day 9: AI Integration
+### Feature Set 3B: AI Integration
 **Tasks:**
 1. [ ] Add AI chat interface
 2. [ ] Create element generation logic
@@ -129,7 +129,7 @@ function createLeanCanvasTemplate() {
 - Maintain consistency between layers
 - Show AI operations visually
 
-### Day 10: Access Control
+### Feature Set 3C: Access Control
 **Tasks:**
 1. [ ] Implement permission system
 2. [ ] Create share dialog
@@ -173,10 +173,10 @@ interface ComplexityMetrics {
    - State management complexity
    - Type safety issues
 
-## Daily Log Template
+## Progress Log Template
 
 ```markdown
-## Day X: [Feature Name]
+## Feature Set X: [Feature Name]
 
 ### Implementation Approach
 How we worked around Excalidraw limitations:
@@ -222,17 +222,17 @@ This would have been [easier/harder] with tldraw because:
 
 ## Success Metrics
 
-**Week 1 Success:**
+**Phase 1 Success:**
 - Basic collab working with workarounds
 - Sync latency acceptable (<200ms)
 - Architecture documented
 
-**Week 2 Success:**
+**Phase 2 Success:**
 - Card/CardStack overlays functional
 - Drag-drop working (even if hacky)
 - State management solid
 
-**Week 3 Success:**
+**Phase 3 Success:**
 - Feature parity with tldraw experiment
 - All hacks documented
 - Maintenance burden assessed

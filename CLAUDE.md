@@ -27,6 +27,7 @@ ProductPeer is an AI-native infinite canvas tool for indie hackers and soloprene
 - **AI-native from day 1**: Every phase includes AI features
 - **Private-first**: Boards are private by default with access management
 - **Blocks → Templates**: Simple hierarchy, no intermediate levels
+- **No time estimates**: Don't use weeks, days, or other time estimates in documentation - they're not realistic
 
 ## File Editing Guidelines
 When editing files in this project:
