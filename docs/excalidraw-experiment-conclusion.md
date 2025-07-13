@@ -79,7 +79,23 @@ class CardShape extends BaseShape {
 - Optimized for thousands of elements
 - Battle-tested in production
 
-### 5. Maintenance Burden
+### 5. Liveblocks Compatibility
+
+**Excalidraw + Liveblocks**: Fundamental incompatibility
+- Excalidraw has no collaboration APIs to integrate with
+- Had to build custom translation layer between systems
+- State models don't align (Excalidraw elements vs Liveblocks storage)
+- Manual sync required for every operation
+- No shared understanding of presence, cursors, or selection
+
+**tldraw + Liveblocks**: Native compatibility
+- tldraw designed with Liveblocks in mind
+- Direct integration without translation layers
+- Shared state model and CRDT support
+- Automatic sync for all operations
+- Built-in presence, cursors, and selection sync
+
+### 6. Maintenance Burden
 
 **Excalidraw Risks**:
 - Any Excalidraw update could break our workarounds
@@ -101,6 +117,7 @@ class CardShape extends BaseShape {
 | Lines of sync code | 104 | 0 |
 | Workarounds needed | 10+ | 0 |
 | APIs to learn | 8+ | 3 |
+| Liveblocks compatibility | Manual translation | Native integration |
 | Complexity score | 9/10 | 2/10 |
 | Maintenance burden | 9/10 | 3/10 |
 | Time to implement Card | 2 days | 2 hours |
@@ -108,9 +125,10 @@ class CardShape extends BaseShape {
 ## Critical Blockers for Excalidraw
 
 1. **No AI Integration Path**: AI as collaborative user requires proper WebSocket architecture
-2. **Zoom/Pan Breaks Everything**: Fundamental issue with overlay approach
-3. **Performance Ceiling**: DOM overlays limit scalability
-4. **Maintenance Nightmare**: Every feature requires complex workarounds
+2. **Liveblocks Incompatibility**: Requires building entire translation layer
+3. **Zoom/Pan Breaks Everything**: Fundamental issue with overlay approach
+4. **Performance Ceiling**: DOM overlays limit scalability
+5. **Maintenance Nightmare**: Every feature requires complex workarounds
 
 ## Why tldraw Wins for ProductPeer
 
@@ -126,11 +144,12 @@ class CardShape extends BaseShape {
 - Proper interaction handling
 - Zoom/pan works perfectly
 
-### 3. Built-in Collaboration
+### 3. Built-in Collaboration with Liveblocks
+- Designed to work with Liveblocks from day one
 - Real-time sync out of the box
-- Conflict resolution handled
-- Presence system included
-- Performance optimized
+- Conflict resolution handled automatically
+- Presence system included and compatible
+- Performance optimized for multiplayer
 
 ### 4. Developer Velocity
 - Ship features, not infrastructure
@@ -143,6 +162,42 @@ class CardShape extends BaseShape {
 - Commercial backing
 - Extension-friendly architecture
 - Growing ecosystem
+
+## Integration Code Comparison
+
+### Liveblocks Sync - Excalidraw Approach
+```typescript
+// 104 lines of custom sync code needed!
+export class ExcalidrawLiveblocksSync {
+  private isRemoteUpdate = false; // Hack to prevent loops
+  
+  constructor(room: Room, excalidrawAPI: ExcalidrawImperativeAPI) {
+    // Manual state initialization
+    this.initializeStorage();
+    
+    // Custom change detection
+    this.subscribeToRemoteChanges();
+    
+    // Manual cursor tracking
+    this.setupCursorTracking();
+  }
+  
+  // Translate between incompatible state models
+  private syncElements() {
+    // Convert Excalidraw elements to Liveblocks storage
+    // Handle conflicts manually
+    // Batch updates for performance
+  }
+}
+```
+
+### Liveblocks Sync - tldraw Approach
+```typescript
+// Built-in, no custom code needed!
+<Tldraw store={store}>
+  <LiveblocksProvider room={room} />
+</Tldraw>
+```
 
 ## Code Comparison
 
@@ -196,9 +251,10 @@ class CardShape extends BaseShape {
 ## Lessons Learned
 
 1. **Tool Philosophy Matters**: Excalidraw is designed for single-user drawing; tldraw is designed for collaborative applications
-2. **Native > Workarounds**: Built-in features are always preferable to complex workarounds
-3. **Architecture Alignment**: Choose tools that align with your product's core requirements
-4. **Complexity Compounds**: Each workaround adds maintenance burden that grows exponentially
+2. **Integration Compatibility is Critical**: tldraw + Liveblocks work together naturally; Excalidraw + Liveblocks require extensive glue code
+3. **Native > Workarounds**: Built-in features are always preferable to complex workarounds
+4. **Architecture Alignment**: Choose tools that align with your product's core requirements
+5. **Complexity Compounds**: Each workaround adds maintenance burden that grows exponentially
 
 ## Conclusion
 
