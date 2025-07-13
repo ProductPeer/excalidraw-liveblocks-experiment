@@ -60,6 +60,8 @@ Main PRD: `/mnt/c/Users/tin/Vibe Coding/excalidraw-fork/productpeer/productpeer-
 - Always add files specifically: `git add path/to/specific/file.ts`
 - Review changes with `git status` and `git diff` before adding
 - Be pinpoint and specific to changes made in your session only
+- Use `main` branch instead of `master` for consistency
+- **Avoid nested directory structures** when cloning - don't create `project/project/` structure
 
 ## Known Issues
 - Environment variables must be in `playground/.env.local` not root
@@ -71,9 +73,32 @@ Main PRD: `/mnt/c/Users/tin/Vibe Coding/excalidraw-fork/productpeer/productpeer-
 - AI can only see/edit blocks on boards it has access to
 - Use Gemini API with model "gemini-1.5-flash"
 
+## Excalidraw vs tldraw Experiment Findings
+
+### Excalidraw Limitations Discovered:
+1. **No native collaboration support** - Must build everything from scratch
+2. **No custom element types** - Card/CardStack require overlay hacks
+3. **Complex state synchronization** - Manual sync between Excalidraw and Liveblocks
+4. **Position calculation issues** - Overlays break with zoom/pan
+5. **Performance concerns** - DOM overlays on canvas = slow with many elements
+6. **High maintenance burden** - Any Excalidraw update could break custom features
+
+### Complexity Metrics (Excalidraw):
+- 12+ custom files for basic collaboration and Cards
+- 10+ workarounds needed
+- 104 lines just for sync layer
+- Complexity score: 9/10
+
+### Recommendation:
+**Consider tldraw for ProductPeer** - It has native support for:
+- Real-time collaboration (built-in)
+- Custom shapes (first-class feature)
+- AI as collaborative user (WebSocket integration)
+- Much lower maintenance burden
+
 ## Next Steps
 1. Create initial project structure (frontend/backend)
-2. Set up Excalidraw integration
+2. Set up canvas integration (consider tldraw based on experiments)
 3. Implement basic blocks
 4. Add template library
 5. Build access management system
